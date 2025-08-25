@@ -18,25 +18,32 @@ public class UsuarioRepositorio {
     }
 
     public void deleteById(Integer id) {
-        System.out.printf("DELETE/id - Recebendo o id: %d para excluir um usuário.", id);
-        System.out.println(id);
+        System.out.printf("DELETE/id - Recebendo o id: %d para excluir um usuário.%n", id);
     }
 
     public List<Usuario> findAll() {
         System.out.println("LIST - Listando os usuários do sistema.");
         List<Usuario> usuarios = new ArrayList<>();
-        usuarios.add(new Usuario("Jesus", "1234"));
-        usuarios.add(new Usuario("Maria", "4321"));
+        Usuario u1 = new Usuario("Jesus", "1234");
+        u1.setId(1);
+        Usuario u2 = new Usuario("Maria", "4321");
+        u2.setId(2);
+        usuarios.add(u1);
+        usuarios.add(u2);
         return usuarios;
     }
 
     public Usuario findById(Integer id) {
-        System.out.printf("FIND/id - Recebendo o id: %d para localizar o usuário.", id);
-        return new Usuario("Jesus", "1234");
+        System.out.printf("FIND/id - Recebendo o id: %d para localizar o usuário.%n", id);
+        Usuario u = new Usuario("Jesus", "1234");
+        u.setId(id != null ? id : 1);
+        return u;
     }
 
     public Usuario findByUsername (String username) {
-        System.out.printf("FIND/username - Recebendo o username: %s para localizar o usuário", username);
-        return new Usuario("Jesus", "1234");
+        System.out.printf("FIND/username - Recebendo o username: %s para localizar o usuário.%n", username);
+        Usuario u = new Usuario("Jesus", "1234");
+        u.setId(1);
+        return u;
     }
 }
